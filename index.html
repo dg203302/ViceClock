@@ -3,58 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="manifest.json">
-    <title>GTAVI Ctdwn</title>
+    <title>ViceClock</title>
     <link rel="stylesheet" href="styles/Styles_indice.css">
-    <style>
-    #ads{
-        max-width: 300px;
-        margin: 10px auto;
-        padding: 1rem 1rem 1.5rem;
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-        backdrop-filter: blur(6px) saturate(120%);
-        color: #ffffff;
-      }
-    </style>
-    <script src="https://pl28462641.effectivegatecpm.com/02/59/1d/02591dfaac42b8d90a24a214d1a7dee3.js"></script>
-
 </head>
 <body>
     <div id="contenido">
-        <h1 data-i18n="home.title">Homepage</h1>
-        <h1 data-i18n="home.release"> Grand Theft 6 Release Date:<br>19/11/2026</h1>
-        <div id="Barra_de_opciones">
-            <!--<a href="index.html" data-i18n="nav.home">Home</a>-->
-            <a href="templates/Conteo.html" data-i18n="nav.countdown">Countdown</a>
-            <a href="templates/Trailers.html" data-i18n="nav.trailers">Trailers</a>
+        <h1>ViceClock</h1>
+        <h1> Grand Theft 6 Release Date:<br>19/11/2026</h1>
+        <h2> Countdown to release</h2>
+        <div id="Conteo">
+            <h2 id="Horas">00 Hours</h2>
+            <h2 id="Dias">000 Days</h2>
+            <h2 id="Meses">00 Months</h2>
         </div>
-        <div id="languages">
-            <h3 data-i18n="lang.prompt">Select Language</h3>
-            <a href="#" id="btnEsp" data-i18n="lang.es">Spanish</a>
-            <a href="#" id="btnEng" data-i18n="lang.en">English</a>
-            <!--<button id="themeToggle" type="button" aria-pressed="false" data-i18n="theme.toDark">Dark mode</button>-->
-        </div>
-    </div>
-    <div id="ads">
-        <script async="async" data-cfasync="false" src="https://pl28462759.effectivegatecpm.com/6c415e23b62cb19c8f42cff8dcb04e95/invoke.js"></script>
-        <div id="container-6c415e23b62cb19c8f42cff8dcb04e95"></div>
     </div>
 
     <div id="credits">
-        <a href="https://github.com/dg203302">&copy; Dg203302 - 2025</a>
-        <cite>
-            Photo by <a href="https://unsplash.com/@mprage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mark</a> on <a href="https://unsplash.com/photos/aerial-photograph-of-seashore-and-buildings-D3cC-j2-pP4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
-        </cite>
-        <p data-i18n="RockstarCredits">Grand Theft Auto VI is a game developed and published by Rockstar Games. This is an unofficial Website/App.</p>
+        <a href="https://diegogarcia-dev.com.ar">&copy; DiegoGarcia <span id="yr"></span></a>
+        <p>Grand Theft Auto VI is a game developed and published by Rockstar Games. This is an unofficial Website/App.</p>
     </div>
-    <script src="scripts/unregister-sw.js" defer></script>
     <script>
-      document.getElementById('btnEsp').addEventListener('click', e => { e.preventDefault(); window.setLanguage('spanish'); });
-      document.getElementById('btnEng').addEventListener('click', e => { e.preventDefault(); window.setLanguage('english'); });
+        window.onload = () =>{
+            const date = new Date().getFullYear()
+            document.getElementById("yr").innerText = date
+        }
     </script>
-    <script src="scripts/i18n.js" defer></script>
+    <script src="../scripts/script_contador.js"></script>
 </body>
 </html>
