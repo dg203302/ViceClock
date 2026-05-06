@@ -1,33 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViceClock</title>
     <link rel="stylesheet" href="styles/Styles_indice.css">
 </head>
-<body>
-    <div id="contenido">
-        <h1>ViceClock</h1>
-        <h1> Grand Theft 6 Release Date:<br>19/11/2026</h1>
-        <h2> Countdown to release</h2>
-        <div id="Conteo">
-            <h2 id="Horas">00 Hours</h2>
-            <h2 id="Dias">000 Days</h2>
-            <h2 id="Meses">00 Months</h2>
-        </div>
-    </div>
 
-    <div id="credits">
-        <a href="https://diegogarcia-dev.com.ar">&copy; DiegoGarcia <span id="yr"></span></a>
-        <p>Grand Theft Auto VI is a game developed and published by Rockstar Games. This is an unofficial Website/App.</p>
+<body>
+    <!-- Background slideshow -->
+    <div class="bg-slideshow" aria-hidden="true">
+        <div class="bg-slide bg-slide--active"></div>
+        <div class="bg-slide"></div>
     </div>
+    <div class="bg-overlay" aria-hidden="true"></div>
+    <header>
+        <div class="header-shell">
+            <div class="header-row brand-row">
+                <h1>ViceClock</h1>
+            </div>
+            <div class="header-row release-row">
+                <span>Release Date</span>
+                <time datetime="2026-11-19">19/11/2026</time>
+            </div>
+            <div class="header-row counter-row">
+                <h2 id="contador"></h2>
+                <div class="dropdown">
+                    <button id="menuToggle" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu()">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaXJjbGUtY2hldnJvbi1kb3duLWljb24gbHVjaWRlLWNpcmNsZS1jaGV2cm9uLWRvd24iPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PHBhdGggZD0ibTE2IDEwLTQgNC00LTQiLz48L3N2Zz4="
+                            alt="menu">
+                    </button>
+                    <ul id="dropdownMenu" class="dropdown-menu" role="menu" aria-hidden="true">
+                        <li role="none"><button role="menuitem" onclick="selectMode('horas')">Hours</button></li>
+                        <li role="none"><button role="menuitem" onclick="selectMode('meses')">Months</button></li>
+                        <li role="none"><button role="menuitem" onclick="selectMode('dias')">Days</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h1>Trailers</h1>
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/QdBZY2fkU-0?si=VdhX1pEk8--Pz4YI&amp;controls=0"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/VQRLujxTm3c?si=v6ucPUr_GW4RDb3d&amp;controls=0"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section class="info-panel">
+            <article>
+                <h2>GTA VI - Everything We Know (May 2026)</h2>
+
+                <h3>Officially Confirmed Information</h3>
+
+                <h3>Development and Reveal</h3>
+                <p>GTA VI is an action-adventure open-world game developed and published by Rockstar Games. Rockstar
+                    confirmed in February 2022 that the game was in development, and it was formally revealed in
+                    December 2023. Preliminary work started in 2014 after GTA V, while full production began in late
+                    2018 following Red Dead Redemption 2.</p>
+
+                <h3>Release Date (with delays)</h3>
+                <p>The game has had multiple postponements. On May 2, 2025, Rockstar announced a release date of May 26,
+                    2026. On November 6, 2025, it was delayed again to November 19, 2026, to increase polish. The
+                    current official launch date is November 19, 2026, for PS5 and Xbox Series X/S.</p>
+
+                <h3>Story and Characters</h3>
+                <p>The story follows Jason and Lucia, a criminal duo trying to survive after a robbery goes wrong. They
+                    are pushed into a larger criminal conspiracy across Leonida, forcing them to rely on each other to
+                    stay alive.</p>
+
+                <h3>Map and Setting</h3>
+                <p>GTA VI returns to Vice City, now part of the larger state of Leonida (Rockstar's version of Florida).
+                    Confirmed regions include:</p>
+                <ul>
+                    <li>Vice City (Miami-inspired, Art Deco style)</li>
+                    <li>Leonida Keys (Florida Keys-inspired)</li>
+                    <li>Grassrivers (Everglades-inspired)</li>
+                    <li>Port Gellhorn (industrial and port area)</li>
+                </ul>
+
+                <h3>Culture and Satire</h3>
+                <p>The game satirizes 2020s U.S. culture with social media parody, influencer culture, modern policing
+                    tactics, and internet references such as Florida Man.</p>
+
+                <h3>Trailers and Records</h3>
+                <p>The first trailer (December 4, 2023) broke records as the most viewed non-music video on YouTube in
+                    its first 12 hours. The second trailer (May 6, 2025) also reached massive view counts in its first
+                    24 hours.</p>
+
+                <h3>PC and Platforms</h3>
+                <p>There is still no official confirmation for a PC launch version. Take-Two has reiterated Rockstar's
+                    historical strategy of prioritizing consoles first.</p>
+
+                <h3>Speculation and Future Rumors</h3>
+
+                <h3>Price</h3>
+                <p>Pricing is not official yet. Analysts have speculated anywhere from a standard premium price to a
+                    possible higher launch price.</p>
+
+                <h3>PC Release (eventual)</h3>
+                <p>Many players still expect a PC version later, following Rockstar's past release pattern and likely
+                    adding technical enhancements.</p>
+
+                <h3>Third Trailer</h3>
+                <p>With launch approaching, a third trailer is widely expected in summer 2026, potentially near major
+                    gaming events, along with pre-order and edition details.</p>
+
+                <h3>Industry Impact</h3>
+                <p>Forecasts suggest GTA VI could become one of the biggest launches ever, with huge first-year sales
+                    and revenue projections.</p>
+            </article>
+        </section>
+    </main>
+    <footer id="credits">
+        <div>
+            <a href="https://diegogarcia-dev.com.ar">&copy; DiegoGarcia <span id="yr"></span></a>
+            <p>Grand Theft Auto VI is a game developed and published by Rockstar Games. This is an unofficial
+                Website/App.</p>
+        </div>
+    </footer>
     <script>
-        window.onload = () =>{
+        window.onload = () => {
             const date = new Date().getFullYear()
             document.getElementById("yr").innerText = date
         }
     </script>
-    <script src="../scripts/script_contador.js"></script>
+    <script src="scripts/script_contador.js"></script>
+    <script src="scripts/script_slideshow.js"></script>
 </body>
+
 </html>
