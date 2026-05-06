@@ -77,13 +77,97 @@ window.addEventListener('load', () => {
 
 // Header scroll behavior: añadir/quitar clase 'scrolled' según desplazamiento
 function onScrollHeader() {
-    const header = document.querySelector('header');
-    if (!header) return;
     const threshold = 30; // px para activar el estado compacto
-    if (window.scrollY > threshold) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    if (window.scrollY > threshold) document.body.classList.add('scrolled');
+    else document.body.classList.remove('scrolled');
 }
 
 window.addEventListener('scroll', onScrollHeader, { passive: true });
 // ejecutar al cargar para estado correcto si la página se abre scrolleada
 window.addEventListener('load', onScrollHeader);
+
+// ── YouTube Background Music Player ──
+let ytPlayer = null;
+let ytReady = false;
+let isPlaying = false;
+const YT_VIDEO_ID = 'atha8XPhkuQ'; // YouTube video ID to play
+
+// Load the YouTube IFrame API script
+(function loadYTAPI() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+})();
+
+// Called automatically by the YT API once it's ready
+function onYouTubeIframeAPIReady() {
+    // Create a hidden container for the player
+    let container = document.getElementById('yt-player-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'yt-player-container';
+        container.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;';
+        document.body.appendChild(container);
+        const playerDiv = document.createElement('div');
+        playerDiv.id = 'yt-bg-player';
+        container.appendChild(playerDiv);
+    }
+
+    ytPlayer = new YT.Player('yt-bg-player', {
+        videoId: YT_VIDEO_ID,
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            disablekb: 1,
+            fs: 0,
+            loop: 1,
+            playlist: YT_VIDEO_ID, // required for loop to work
+            modestbranding: 1,
+            rel: 0,
+            showinfo: 0,
+        },
+        events: {
+            onReady: (e) => {
+                ytReady = true;
+                e.target.setVolume(30); // 30% volume
+            },
+            onStateChange: (e) => {
+                const btn = document.getElementById('musicToggleBtn');
+                if (e.data === YT.PlayerState.PLAYING) {
+                    isPlaying = true;
+                    if (btn) btn.classList.add('music-playing');
+                } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.UNSTARTED) {
+                    isPlaying = false;
+                    if (btn) btn.classList.remove('music-playing');
+                } else if (e.data === YT.PlayerState.ENDED) {
+                    e.target.playVideo();
+                }
+            }
+        }
+    });
+}
+
+/**
+ * Toggle background music playback.
+ * Called by the audio icon button in the header.
+ */
+function toggleSong() {
+    if (!ytReady || !ytPlayer) return;
+
+    const btn = document.getElementById('musicToggleBtn');
+
+    if (isPlaying) {
+        ytPlayer.pauseVideo();
+        isPlaying = false;
+        if (btn) btn.classList.remove('music-playing');
+    } else {
+        ytPlayer.playVideo();
+        isPlaying = true;
+        if (btn) btn.classList.add('music-playing');
+    }
+}
+
+// Alias so the existing onclick="iniciarMusica()" also works
+function iniciarMusica() {
+    toggleSong();
+}
