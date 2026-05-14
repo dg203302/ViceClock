@@ -1,0 +1,64 @@
+{
+  "name": "ViceClock",
+  "short_name": "ViceClock",
+  "start_url": "/",
+  "display": "standalone",
+  "description": "A countdown app for GTA VI with news, trailers and screenshots",
+  "lang": " en",
+  "dir": "auto",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "Icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "Icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/1.png",
+      "sizes": "385x828",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+        "src": "screenshots/2.png",
+        "sizes": "383x828",
+        "type": "image/png",
+        "description": "A screenshot of the news page"
+    },
+    {
+        "src": "screenshots/3.png",
+        "sizes": "383x828",
+        "type": "image/png",
+        "description": "A screenshot of the trailers page"
+    },
+    {
+        "src": "screenshots/4.png",
+        "sizes": "383x828",
+        "type": "image/png",
+        "description": "A screenshot of the screenshots page"
+    }
+  ]
+}
