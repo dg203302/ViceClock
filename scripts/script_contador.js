@@ -1,16 +1,31 @@
 const release_date = "19/11/2026";
 const cont = document.getElementById('contador');
-let modo_Act = "horas";
+let modo_Act = "meses";
 
-function parseReleaseDate() {
-    const [d, m, y] = release_date.split('/').map(Number);
+function parseDate(dateStr) {
+    const [d, m, y] = dateStr.split('/').map(Number);
     return new Date(y, m - 1, d, 0, 0, 0);
 }
 
 function updreloj() {
     const now = new Date();
-    const target = parseReleaseDate();
+    const target = parseDate(release_date);
     let diff = target - now;
+    
+    // Update progress bar
+    const start = parseDate("05/12/2023");
+    const totalDuration = target - start;
+    const elapsed = now - start;
+    let percentage = (elapsed / totalDuration) * 100;
+    if (percentage > 100) percentage = 100;
+    if (percentage < 0) percentage = 0;
+    
+    const progressFill = document.getElementById('progress-bar-fill');
+    if (progressFill) {
+        progressFill.style.width = percentage + '%';
+        progressFill.parentElement.title = `Progreso: ${percentage.toFixed(2)}% | Falta: ${(100 - percentage).toFixed(2)}%`;
+    }
+
     if (diff <= 0) {
         cont.innerText = 'Lanzado';
         return;

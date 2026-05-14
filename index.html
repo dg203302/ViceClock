@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Icons/official-gta-vi-logo.png" type="image/x-icon">
     <title>ViceClock</title>
 <link rel="manifest" href="manifest.json" />    <link rel="stylesheet" href="styles/Styles_indice.css">
 </head>
@@ -25,7 +26,12 @@
                 <time datetime="2026-11-19">19/11/2026</time>
             </div>
             <div class="header-row counter-row">
-                <h2 id="contador"></h2>
+                <div class="counter-wrapper" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 id="contador"></h2>
+                    <div id="progress-bar-container" style="width: 100%; height: 4px; background: rgba(255, 255, 255, 0.15); border-radius: 2px; margin-top: 4px; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);" title="Progreso hasta el lanzamiento">
+                        <div id="progress-bar-fill" style="height: 100%; width: 0%; background: linear-gradient(90deg, #df4ccf, #ff82d7); border-radius: 2px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 8px rgba(255, 130, 215, 0.6);"></div>
+                    </div>
+                </div>
                 <div class="dropdown">
                     <button id="menuToggle" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu()">
                         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaXJjbGUtY2hldnJvbi1kb3duLWljb24gbHVjaWRlLWNpcmNsZS1jaGV2cm9uLWRvd24iPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PHBhdGggZD0ibTE2IDEwLTQgNC00LTQiLz48L3N2Zz4="
@@ -53,17 +59,29 @@
             <div class="IntElems">
                 <div class="Trailers">
                     <h1>Trailers</h1>
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/QdBZY2fkU-0?si=VdhX1pEk8--Pz4YI&amp;controls=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/VQRLujxTm3c?si=v6ucPUr_GW4RDb3d&amp;controls=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-container" style="position: relative; width: 100%; max-width: 560px; margin: 0 auto 1rem auto;">
+                        <iframe class="trailer-iframe" width="100%" height="315" style="margin: 0;"
+                            src="https://www.youtube.com/embed/QdBZY2fkU-0?si=VdhX1pEk8--Pz4YI&amp;controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="video-overlay" data-video="https://www.youtube.com/embed/QdBZY2fkU-0?si=VdhX1pEk8--Pz4YI&amp;autoplay=1&amp;controls=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 10;"></div>
+                    </div>
+                    <div class="video-container" style="position: relative; width: 100%; max-width: 560px; margin: 0 auto 1rem auto;">
+                        <iframe class="trailer-iframe" width="100%" height="315" style="margin: 0;"
+                            src="https://www.youtube.com/embed/VQRLujxTm3c?si=v6ucPUr_GW4RDb3d&amp;controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="video-overlay" data-video="https://www.youtube.com/embed/VQRLujxTm3c?si=v6ucPUr_GW4RDb3d&amp;autoplay=1&amp;controls=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 10;"></div>
+                    </div>
                 </div>
+
+                <div class="Ads">
+                    <script async="async" data-cfasync="false" src="https://pl29448495.profitablecpmratenetwork.com/b6b487737cc70d809bc9fd4d74fcfba6/invoke.js"></script>
+                    <div id="container-b6b487737cc70d809bc9fd4d74fcfba6"></div>
+                </div>
+
                 <div class="Social">
                     <h1>Social Media</h1>
                     <div class="social-links">
@@ -105,6 +123,20 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="Ads">
+                    <script>
+                    atOptions = {
+                        'key' : '1ddbbca4d4e20cdb964c50cd90fde918',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/1ddbbca4d4e20cdb964c50cd90fde918/invoke.js"></script>
+                </div>
+
                 <div class="Social">
                     <h1>Wishlist Grand Theft Auto VI</h1>
                     <div class="social-links">
@@ -126,6 +158,20 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="Ads">
+                    <script>
+                    atOptions = {
+                        'key' : '89da3e3c4b73dc8ffb25d2f024a60e08',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/89da3e3c4b73dc8ffb25d2f024a60e08/invoke.js"></script>
+                </div>
+
                 <div class="Postals">
                     <h1>Postals from Leonida</h1>
                     <div class="contenedorPostals">
@@ -218,6 +264,11 @@
         <img class="modal-content" id="maximizedPostal">
     </div>
 
+    <div id="videoModal" class="modal" aria-hidden="true">
+        <span class="close-modal" id="closeVideoModal">&times;</span>
+        <iframe class="modal-content video-modal-content" id="maximizedVideo" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
     <script>
         window.onload = () => {
             const date = new Date().getFullYear()
@@ -227,6 +278,7 @@
     <script src="scripts/script_contador.js"></script>
     <script src="scripts/script_slideshow.js"></script>
     <script src="scripts/script_postals.js"></script>
+    <script src="scripts/script_trailers.js"></script>
 </body>
 
 </html>
